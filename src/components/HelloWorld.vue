@@ -1,25 +1,23 @@
 <template>
   <div class="hello">
     HelloWorld
-    <div>{{n}}</div>
-     <button @click="addN">点击</button>
   </div>
 </template>
 
 <script>
-import {ref} from 'vue';
+import {ref, reactive, watchEffect} from 'vue';
 export default {
   name: 'HelloWorld',
 
   setup() {
-    const n = ref(1);
-    function addN() {
-      n.value++;
-    }
-    return {
-      n,
-      addN
-    }
+    const state = reactive({
+      name: 'Jack',
+      age: 1,
+      address: 'aaa'
+    });
+    watchEffect(() => {
+      console.log('123');
+    })
   },
 
   props: {
